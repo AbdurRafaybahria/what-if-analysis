@@ -1,0 +1,133 @@
+{
+  "id": "manufacturing_project_001",
+  "name": "Smart Factory Implementation",
+  "description": "Implement IoT sensors, automation systems, and predictive maintenance in manufacturing facility",
+  "constraints": {
+    "quality_gates": true
+  },
+  "tasks": [
+    {
+      "id": "task_001",
+      "name": "IoT Sensor Installation",
+      "description": "Install and configure IoT sensors across production lines",
+      "duration_hours": 40,
+      "required_skills": [
+        {"name": "iot_systems", "level": 4},
+        {"name": "electrical_engineering", "level": 3}
+      ],
+      "order": 1
+    },
+    {
+      "id": "task_002",
+      "name": "Data Collection System",
+      "description": "Set up data pipeline and storage infrastructure",
+      "duration_hours": 32,
+      "required_skills": [
+        {"name": "data_engineering", "level": 4},
+        {"name": "cloud_systems", "level": 3}
+      ],
+      "order": 2
+    },
+    {
+      "id": "task_003",
+      "name": "Automation Control Systems",
+      "description": "Implement automated control systems for production lines",
+      "duration_hours": 56,
+      "required_skills": [
+        {"name": "automation", "level": 4},
+        {"name": "plc_programming", "level": 4}
+      ],
+      "order": 3
+    },
+    {
+      "id": "task_004",
+      "name": "Predictive Maintenance AI",
+      "description": "Develop AI models for predictive maintenance",
+      "duration_hours": 44,
+      "required_skills": [
+        {"name": "machine_learning", "level": 4},
+        {"name": "data_analysis", "level": 3}
+      ],
+      "order": 4
+    },
+    {
+      "id": "task_005",
+      "name": "Dashboard & Monitoring",
+      "description": "Create real-time monitoring dashboard for operations",
+      "duration_hours": 36,
+      "required_skills": [
+        {"name": "frontend_development", "level": 3},
+        {"name": "data_visualization", "level": 4}
+      ],
+      "order": 5
+    }
+  ],
+  "resources": [
+    {
+      "id": "iot_engineer",
+      "name": "Carlos Martinez (IoT Engineer)",
+      "description": "IoT systems and sensor integration specialist",
+      "skills": [
+        {"name": "iot_systems", "level": 4},
+        {"name": "electrical_engineering", "level": 4},
+        {"name": "automation", "level": 3}
+      ],
+      "hourly_rate": 88.0,
+      "max_hours_per_day": 8.0
+    },
+    {
+      "id": "data_engineer",
+      "name": "Priya Patel (Data Engineer)",
+      "description": "Data pipeline and cloud infrastructure expert",
+      "skills": [
+        {"name": "data_engineering", "level": 4},
+        {"name": "cloud_systems", "level": 4},
+        {"name": "data_analysis", "level": 3}
+      ],
+      "hourly_rate": 92.0,
+      "max_hours_per_day": 8.0
+    },
+    {
+      "id": "automation_specialist",
+      "name": "Robert Kim (Automation Specialist)",
+      "description": "Industrial automation and PLC programming expert",
+      "skills": [
+        {"name": "automation", "level": 4},
+        {"name": "plc_programming", "level": 4},
+        {"name": "electrical_engineering", "level": 3}
+      ],
+      "hourly_rate": 95.0,
+      "max_hours_per_day": 8.0
+    },
+    {
+      "id": "ml_engineer",
+      "name": "Dr. Jennifer Liu (ML Engineer)",
+      "description": "Machine learning and AI systems developer",
+      "skills": [
+        {"name": "machine_learning", "level": 4},
+        {"name": "data_analysis", "level": 4},
+        {"name": "data_engineering", "level": 3}
+      ],
+      "hourly_rate": 110.0,
+      "max_hours_per_day": 7.0
+    },
+    {
+      "id": "frontend_specialist",
+      "name": "Tom Wilson (Frontend Specialist)",
+      "description": "Frontend development and data visualization expert",
+      "skills": [
+        {"name": "frontend_development", "level": 4},
+        {"name": "data_visualization", "level": 4},
+        {"name": "ui_design", "level": 3}
+      ],
+      "hourly_rate": 82.0,
+      "max_hours_per_day": 8.0
+    }
+  ],
+  "metadata": {
+    "project_type": "manufacturing_automation",
+    "complexity": "high",
+    "team_size": 5,
+    "estimated_budget": 85000
+  }
+}

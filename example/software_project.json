@@ -1,0 +1,158 @@
+{
+  "id": "software_project_001",
+  "name": "E-commerce Platform Development",
+  "description": "Build a modern e-commerce platform with user management, product catalog, and payment processing",
+  "constraints": {
+    "quality_gates": true
+  },
+  "tasks": [
+    {
+      "id": "task_001",
+      "name": "Database Design & Setup",
+      "description": "Design database schema and set up initial database structure",
+      "duration_hours": 32,
+      "required_skills": [
+        {"name": "database_design", "level": 4},
+        {"name": "sql", "level": 3}
+      ],
+      "order": 1
+    },
+    {
+      "id": "task_002",
+      "name": "User Authentication System",
+      "description": "Implement user registration, login, and authentication",
+      "duration_hours": 24,
+      "required_skills": [
+        {"name": "backend_development", "level": 3},
+        {"name": "security", "level": 3}
+      ],
+      "order": 2
+    },
+    {
+      "id": "task_003",
+      "name": "Product Catalog API",
+      "description": "Build REST API for product management and catalog",
+      "duration_hours": 40,
+      "required_skills": [
+        {"name": "backend_development", "level": 4},
+        {"name": "api_design", "level": 3}
+      ],
+      "order": 3
+    },
+    {
+      "id": "task_004",
+      "name": "Frontend User Interface",
+      "description": "Create responsive frontend with React/Vue",
+      "duration_hours": 48,
+      "required_skills": [
+        {"name": "frontend_development", "level": 4},
+        {"name": "ui_design", "level": 3}
+      ],
+      "order": 4
+    },
+    {
+      "id": "task_005",
+      "name": "Payment Integration",
+      "description": "Integrate payment gateway and checkout process",
+      "duration_hours": 28,
+      "required_skills": [
+        {"name": "backend_development", "level": 3},
+        {"name": "payment_systems", "level": 4}
+      ],
+      "order": 5
+    },
+    {
+      "id": "task_006",
+      "name": "Testing & QA",
+      "description": "Comprehensive testing including unit, integration, and user testing",
+      "duration_hours": 36,
+      "required_skills": [
+        {"name": "testing", "level": 4},
+        {"name": "automation", "level": 3}
+      ],
+      "order": 6
+    }
+  ],
+  "resources": [
+    {
+      "id": "senior_backend",
+      "name": "Alex Johnson (Senior Backend Dev)",
+      "description": "Lead backend developer with API expertise",
+      "skills": [
+        {"name": "backend_development", "level": 4},
+        {"name": "database_design", "level": 4},
+        {"name": "api_design", "level": 4},
+        {"name": "security", "level": 3}
+      ],
+      "hourly_rate": 95.0,
+      "max_hours_per_day": 8.0
+    },
+    {
+      "id": "frontend_dev",
+      "name": "Sarah Chen (Frontend Developer)",
+      "description": "Frontend specialist with modern frameworks",
+      "skills": [
+        {"name": "frontend_development", "level": 4},
+        {"name": "ui_design", "level": 4},
+        {"name": "testing", "level": 2}
+      ],
+      "hourly_rate": 85.0,
+      "max_hours_per_day": 8.0
+    },
+    {
+      "id": "fullstack_dev",
+      "name": "Mike Rodriguez (Fullstack Developer)",
+      "description": "Versatile developer with both frontend and backend skills",
+      "skills": [
+        {"name": "frontend_development", "level": 3},
+        {"name": "backend_development", "level": 3},
+        {"name": "database_design", "level": 2},
+        {"name": "testing", "level": 3}
+      ],
+      "hourly_rate": 80.0,
+      "max_hours_per_day": 8.0
+    },
+    {
+      "id": "payment_specialist",
+      "name": "Emma Davis (Payment Systems Expert)",
+      "description": "Specialist in payment gateway integration",
+      "skills": [
+        {"name": "payment_systems", "level": 4},
+        {"name": "backend_development", "level": 3},
+        {"name": "security", "level": 4}
+      ],
+      "hourly_rate": 100.0,
+      "max_hours_per_day": 6.0
+    },
+    {
+      "id": "qa_engineer",
+      "name": "David Kim (QA Engineer)",
+      "description": "Quality assurance and test automation expert",
+      "skills": [
+        {"name": "testing", "level": 4},
+        {"name": "automation", "level": 4},
+        {"name": "frontend_development", "level": 2}
+      ],
+      "hourly_rate": 75.0,
+      "max_hours_per_day": 8.0
+    },
+    {
+      "id": "database_admin",
+      "name": "Lisa Wang (Database Administrator)",
+      "description": "Database design and optimization specialist",
+      "skills": [
+        {"name": "database_design", "level": 4},
+        {"name": "sql", "level": 4},
+        {"name": "backend_development", "level": 2}
+      ],
+      "hourly_rate": 90.0,
+      "max_hours_per_day": 8.0
+    }
+  ],
+  "metadata": {
+    "project_type": "software_development",
+    "complexity": "high",
+    "team_size": 6,
+    "estimated_budget": 75000
+  }
+}

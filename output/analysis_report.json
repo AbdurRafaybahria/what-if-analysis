@@ -1,0 +1,1461 @@
+{
+  "summary": {
+    "total_scenarios_evaluated": 9,
+    "pareto_optimal_scenarios": 9,
+    "estimated_budget": 55000
+  },
+  "best_scenarios": {
+    "fastest": {
+      "scenario": {
+        "id": "baseline_sequential",
+        "name": "Baseline Sequential Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "baseline",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "baseline_sequential",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    "cheapest": {
+      "scenario": {
+        "id": "rl_time",
+        "name": "RL Optimized (Time)",
+        "total_duration_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "constraints_satisfied": false,
+        "optimization_type": "time",
+        "num_assignments": 1,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 24.0,
+            "end_time": 32.0,
+            "hours_allocated": 8.0
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "rl_time",
+        "total_time_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "resource_utilization": 0.001,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.2,
+        "constraint_violations": 1,
+        "overall_score": 0.479
+      }
+    },
+    "highest_quality": {
+      "scenario": {
+        "id": "baseline_sequential",
+        "name": "Baseline Sequential Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "baseline",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "baseline_sequential",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    "best_balanced": {
+      "scenario": {
+        "id": "baseline_sequential",
+        "name": "Baseline Sequential Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "baseline",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "baseline_sequential",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    }
+  },
+  "all_scenarios_ranked": [
+    {
+      "rank": 1,
+      "scenario": {
+        "id": "baseline_sequential",
+        "name": "Baseline Sequential Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "baseline",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "baseline_sequential",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "rank": 2,
+      "scenario": {
+        "id": "parallel_execution",
+        "name": "Maximum Parallel Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "time",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "parallel_execution",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "rank": 3,
+      "scenario": {
+        "id": "cost_optimized",
+        "name": "Cost Optimized Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "cost",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "cost_optimized",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "rank": 4,
+      "scenario": {
+        "id": "balanced_0.3",
+        "name": "Balanced Optimization (Time: 0.3, Cost: 0.7)",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "balanced",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0,
+            "end_time": 20,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20,
+            "end_time": 44,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44,
+            "end_time": 76,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76,
+            "end_time": 104,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104,
+            "end_time": 128,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128,
+            "end_time": 148,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148,
+            "end_time": 184,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184,
+            "end_time": 214,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "balanced_0.3",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "rank": 5,
+      "scenario": {
+        "id": "critical_path",
+        "name": "Critical Path Optimized",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "critical_path",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0,
+            "end_time": 20,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20,
+            "end_time": 44,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44,
+            "end_time": 76,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76,
+            "end_time": 104,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104,
+            "end_time": 128,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128,
+            "end_time": 148,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148,
+            "end_time": 184,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184,
+            "end_time": 214,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "critical_path",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "rank": 6,
+      "scenario": {
+        "id": "resource_leveling",
+        "name": "Resource Leveling Optimized",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "resource_leveling",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0,
+            "end_time": 20,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20,
+            "end_time": 44,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44,
+            "end_time": 76,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76,
+            "end_time": 104,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104,
+            "end_time": 128,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128,
+            "end_time": 148,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148,
+            "end_time": 184,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184,
+            "end_time": 214,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "resource_leveling",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "rank": 7,
+      "scenario": {
+        "id": "rl_time",
+        "name": "RL Optimized (Time)",
+        "total_duration_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "constraints_satisfied": false,
+        "optimization_type": "time",
+        "num_assignments": 1,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 24.0,
+            "end_time": 32.0,
+            "hours_allocated": 8.0
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "rl_time",
+        "total_time_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "resource_utilization": 0.001,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.2,
+        "constraint_violations": 1,
+        "overall_score": 0.479
+      }
+    },
+    {
+      "rank": 8,
+      "scenario": {
+        "id": "rl_cost",
+        "name": "RL Optimized (Cost)",
+        "total_duration_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "constraints_satisfied": false,
+        "optimization_type": "cost",
+        "num_assignments": 1,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 512.0,
+            "end_time": 520.0,
+            "hours_allocated": 8.0
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "rl_cost",
+        "total_time_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "resource_utilization": 0.001,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.2,
+        "constraint_violations": 1,
+        "overall_score": 0.479
+      }
+    },
+    {
+      "rank": 9,
+      "scenario": {
+        "id": "rl_balanced",
+        "name": "RL Optimized (Balanced)",
+        "total_duration_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "constraints_satisfied": false,
+        "optimization_type": "balanced",
+        "num_assignments": 1,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 616.0,
+            "end_time": 624.0,
+            "hours_allocated": 8.0
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "rl_balanced",
+        "total_time_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "resource_utilization": 0.001,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.2,
+        "constraint_violations": 1,
+        "overall_score": 0.479
+      }
+    }
+  ],
+  "pareto_frontier": [
+    {
+      "scenario": {
+        "id": "baseline_sequential",
+        "name": "Baseline Sequential Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "baseline",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "baseline_sequential",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "scenario": {
+        "id": "parallel_execution",
+        "name": "Maximum Parallel Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "time",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "parallel_execution",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "scenario": {
+        "id": "cost_optimized",
+        "name": "Cost Optimized Execution",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "cost",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0.0,
+            "end_time": 20.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20.0,
+            "end_time": 44.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44.0,
+            "end_time": 76.0,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76.0,
+            "end_time": 104.0,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104.0,
+            "end_time": 128.0,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128.0,
+            "end_time": 148.0,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148.0,
+            "end_time": 184.0,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184.0,
+            "end_time": 214.0,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "cost_optimized",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "scenario": {
+        "id": "balanced_0.3",
+        "name": "Balanced Optimization (Time: 0.3, Cost: 0.7)",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "balanced",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0,
+            "end_time": 20,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20,
+            "end_time": 44,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44,
+            "end_time": 76,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76,
+            "end_time": 104,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104,
+            "end_time": 128,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128,
+            "end_time": 148,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148,
+            "end_time": 184,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184,
+            "end_time": 214,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "balanced_0.3",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "scenario": {
+        "id": "critical_path",
+        "name": "Critical Path Optimized",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "critical_path",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0,
+            "end_time": 20,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20,
+            "end_time": 44,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44,
+            "end_time": 76,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76,
+            "end_time": 104,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104,
+            "end_time": 128,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128,
+            "end_time": 148,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148,
+            "end_time": 184,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184,
+            "end_time": 214,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "critical_path",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "scenario": {
+        "id": "resource_leveling",
+        "name": "Resource Leveling Optimized",
+        "total_duration_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "constraints_satisfied": true,
+        "optimization_type": "resource_leveling",
+        "num_assignments": 8,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 0,
+            "end_time": 20,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_002",
+            "resource_id": "physician_lead",
+            "start_time": 20,
+            "end_time": 44,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_003",
+            "resource_id": "ehr_analyst",
+            "start_time": 44,
+            "end_time": 76,
+            "hours_allocated": 32
+          },
+          {
+            "task_id": "task_004",
+            "resource_id": "radiology_coordinator",
+            "start_time": 76,
+            "end_time": 104,
+            "hours_allocated": 28
+          },
+          {
+            "task_id": "task_005",
+            "resource_id": "ed_nurse",
+            "start_time": 104,
+            "end_time": 128,
+            "hours_allocated": 24
+          },
+          {
+            "task_id": "task_006",
+            "resource_id": "pharmacist",
+            "start_time": 128,
+            "end_time": 148,
+            "hours_allocated": 20
+          },
+          {
+            "task_id": "task_007",
+            "resource_id": "pm_clinical",
+            "start_time": 148,
+            "end_time": 184,
+            "hours_allocated": 36
+          },
+          {
+            "task_id": "task_008",
+            "resource_id": "qa_analyst",
+            "start_time": 184,
+            "end_time": 214,
+            "hours_allocated": 30
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "resource_leveling",
+        "total_time_days": 26.75,
+        "total_cost": 17814.0,
+        "quality_score": 1.075,
+        "resource_utilization": 0.105,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.075,
+        "constraint_violations": 0,
+        "overall_score": 0.702
+      }
+    },
+    {
+      "scenario": {
+        "id": "rl_time",
+        "name": "RL Optimized (Time)",
+        "total_duration_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "constraints_satisfied": false,
+        "optimization_type": "time",
+        "num_assignments": 1,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 24.0,
+            "end_time": 32.0,
+            "hours_allocated": 8.0
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "rl_time",
+        "total_time_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "resource_utilization": 0.001,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.2,
+        "constraint_violations": 1,
+        "overall_score": 0.479
+      }
+    },
+    {
+      "scenario": {
+        "id": "rl_cost",
+        "name": "RL Optimized (Cost)",
+        "total_duration_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "constraints_satisfied": false,
+        "optimization_type": "cost",
+        "num_assignments": 1,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 512.0,
+            "end_time": 520.0,
+            "hours_allocated": 8.0
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "rl_cost",
+        "total_time_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "resource_utilization": 0.001,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.2,
+        "constraint_violations": 1,
+        "overall_score": 0.479
+      }
+    },
+    {
+      "scenario": {
+        "id": "rl_balanced",
+        "name": "RL Optimized (Balanced)",
+        "total_duration_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "constraints_satisfied": false,
+        "optimization_type": "balanced",
+        "num_assignments": 1,
+        "assignments": [
+          {
+            "task_id": "task_001",
+            "resource_id": "ehr_analyst",
+            "start_time": 616.0,
+            "end_time": 624.0,
+            "hours_allocated": 8.0
+          }
+        ]
+      },
+      "metrics": {
+        "scenario_id": "rl_balanced",
+        "total_time_days": 99.0,
+        "total_cost": 680.0,
+        "quality_score": 0.72,
+        "resource_utilization": 0.001,
+        "parallelization_factor": 1.0,
+        "skill_match_score": 1.2,
+        "constraint_violations": 1,
+        "overall_score": 0.479
+      }
+    }
+  ]
+}
