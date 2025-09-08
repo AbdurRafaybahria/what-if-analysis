@@ -305,12 +305,22 @@ class WhatIfDashboard {
             console.log('  - Parallel checkbox exists:', !!parallelCheckbox);
             console.log('  - Parallel checkbox checked:', parallelCheckbox ? parallelCheckbox.checked : 'N/A');
             
+            const prioritySlider = document.getElementById(`prioritySlider-${task.id}`);
+            const priority = prioritySlider ? parseInt(prioritySlider.value) : 3;
+            
+            // Apply priority-based duration adjustment
+            let baseDuration = durationSlider ? parseFloat(durationSlider.value) : task.duration_hours;
+            let priorityAdjustedDuration = this.applyPriorityAdjustment(baseDuration, priority);
+            
             taskConfigs[task.id] = {
                 originalDuration: task.duration_hours,
-                newDuration: durationSlider ? parseFloat(durationSlider.value) : task.duration_hours,
+                newDuration: priorityAdjustedDuration,
                 allowParallel: parallelCheckbox ? parallelCheckbox.checked : false,
+                priority: priority,
                 order: task.order
             };
+            
+            console.log(`  - Priority: ${priority}, Base duration: ${baseDuration}h, Adjusted: ${priorityAdjustedDuration}h`);
             
             if (parallelCheckbox && parallelCheckbox.checked) {
                 hasParallelTasks = true;
@@ -337,6 +347,10 @@ class WhatIfDashboard {
             console.log(`Sequential total: ${totalTaskHours} hours = ${estimatedDuration.toFixed(1)} days`);
         }
 
+        // Calculate priority-adjusted cost
+        let priorityAdjustedCost = this.calculatePriorityAdjustedCost(taskConfigs);
+        estimatedCost = priorityAdjustedCost;
+        
         // Apply resource rate and availability changes to cost
         let costMultiplier = 1.0;
         let durationMultiplier = 1.0;
@@ -406,6 +420,53 @@ class WhatIfDashboard {
         console.log(`Total calculated duration: ${totalDuration} hours = ${(totalDuration / 8).toFixed(1)} days`);
         
         return totalDuration / 8; // Convert hours to days
+    }
+    
+    applyPriorityAdjustment(baseDuration, priority) {
+        // Priority affects resource allocation efficiency
+        // Higher priority = better resources = faster completion
+        const priorityMultipliers = {
+            1: 1.3,   // Very Low - 30% slower (gets junior resources)
+            2: 1.15,  // Low - 15% slower
+            3: 1.0,   // Normal - baseline
+            4: 0.85,  // High - 15% faster (gets senior resources)
+            5: 0.7    // Critical - 30% faster (gets best resources)
+        };
+        
+        const multiplier = priorityMultipliers[priority] || 1.0;
+        return baseDuration * multiplier;
+    }
+    
+    calculatePriorityAdjustedCost(taskConfigs) {
+        // Calculate cost based on priority-adjusted durations and resource rates
+        let totalCost = 0;
+        
+        Object.entries(taskConfigs).forEach(([taskId, config]) => {
+            // Find the task in project data to get original cost calculation
+            const task = this.projectData.tasks.find(t => t.id === taskId);
+            if (!task) return;
+            
+            // Priority affects which resource tier gets assigned
+            const priorityCostMultipliers = {
+                1: 0.7,   // Very Low - gets cheapest resources (junior)
+                2: 0.85,  // Low - gets lower-cost resources
+                3: 1.0,   // Normal - baseline resource cost
+                4: 1.25,  // High - gets expensive resources (senior)
+                5: 1.5    // Critical - gets most expensive resources (expert)
+            };
+            
+            const baseCostPerHour = 85; // Average hourly rate from original scenario
+            const priorityMultiplier = priorityCostMultipliers[config.priority] || 1.0;
+            const adjustedRate = baseCostPerHour * priorityMultiplier;
+            
+            const taskCost = config.newDuration * adjustedRate;
+            totalCost += taskCost;
+            
+            console.log(`Task ${taskId}: Priority ${config.priority}, Duration ${config.newDuration}h, Rate $${adjustedRate}/h, Cost $${taskCost}`);
+        });
+        
+        console.log(`Total priority-adjusted cost: $${totalCost}`);
+        return totalCost;
     }
     
     updateImpactPreviewFromScenario(metrics) {
