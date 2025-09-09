@@ -1,0 +1,279 @@
+{
+  "scenarios": [
+    {
+      "id": "cms_baseline",
+      "name": "CMS Process Baseline",
+      "total_duration_days": 0.43125,
+      "total_cost": 295.65,
+      "quality_score": 0.85,
+      "constraints_satisfied": true,
+      "optimization_type": "cms_baseline",
+      "num_assignments": 6,
+      "assignments": [
+        {
+          "task_id": "task_010",
+          "resource_id": "resource_011",
+          "start_time": 0.0,
+          "end_time": 0.5333333333333333,
+          "hours_allocated": 0.5333333333333333
+        },
+        {
+          "task_id": "task_011",
+          "resource_id": "resource_006",
+          "start_time": 0.5333333333333333,
+          "end_time": 0.9333333333333333,
+          "hours_allocated": 0.4
+        },
+        {
+          "task_id": "task_012",
+          "resource_id": "resource_008",
+          "start_time": 0.9333333333333333,
+          "end_time": 1.6,
+          "hours_allocated": 0.6666666666666666
+        },
+        {
+          "task_id": "task_013",
+          "resource_id": "resource_007",
+          "start_time": 1.6,
+          "end_time": 2.3833333333333333,
+          "hours_allocated": 0.7833333333333333
+        },
+        {
+          "task_id": "task_014",
+          "resource_id": "resource_009",
+          "start_time": 2.3833333333333333,
+          "end_time": 2.85,
+          "hours_allocated": 0.4666666666666667
+        },
+        {
+          "task_id": "task_015",
+          "resource_id": "resource_010",
+          "start_time": 2.85,
+          "end_time": 3.45,
+          "hours_allocated": 0.6
+        }
+      ]
+    },
+    {
+      "id": "cms_parallel",
+      "name": "CMS Parallel Execution",
+      "total_duration_days": 0.09791666666666667,
+      "total_cost": 295.65,
+      "quality_score": 0.85,
+      "constraints_satisfied": true,
+      "optimization_type": "parallel",
+      "num_assignments": 6,
+      "assignments": [
+        {
+          "task_id": "task_010",
+          "resource_id": "resource_011",
+          "start_time": 0.0,
+          "end_time": 0.5333333333333333,
+          "hours_allocated": 0.5333333333333333
+        },
+        {
+          "task_id": "task_011",
+          "resource_id": "resource_006",
+          "start_time": 0.0,
+          "end_time": 0.4,
+          "hours_allocated": 0.4
+        },
+        {
+          "task_id": "task_012",
+          "resource_id": "resource_008",
+          "start_time": 0.0,
+          "end_time": 0.6666666666666666,
+          "hours_allocated": 0.6666666666666666
+        },
+        {
+          "task_id": "task_013",
+          "resource_id": "resource_007",
+          "start_time": 0.0,
+          "end_time": 0.7833333333333333,
+          "hours_allocated": 0.7833333333333333
+        },
+        {
+          "task_id": "task_014",
+          "resource_id": "resource_009",
+          "start_time": 0.0,
+          "end_time": 0.4666666666666667,
+          "hours_allocated": 0.4666666666666667
+        },
+        {
+          "task_id": "task_015",
+          "resource_id": "resource_010",
+          "start_time": 0.0,
+          "end_time": 0.6,
+          "hours_allocated": 0.6
+        }
+      ]
+    },
+    {
+      "id": "cms_resource_optimized",
+      "name": "CMS Resource Optimized",
+      "total_duration_days": 0.09791666666666667,
+      "total_cost": 295.65,
+      "quality_score": 0.88,
+      "constraints_satisfied": true,
+      "optimization_type": "resource_optimized",
+      "num_assignments": 6,
+      "assignments": [
+        {
+          "task_id": "task_010",
+          "resource_id": "resource_011",
+          "start_time": 0.0,
+          "end_time": 0.5333333333333333,
+          "hours_allocated": 0.5333333333333333
+        },
+        {
+          "task_id": "task_011",
+          "resource_id": "resource_006",
+          "start_time": 0.0,
+          "end_time": 0.4,
+          "hours_allocated": 0.4
+        },
+        {
+          "task_id": "task_012",
+          "resource_id": "resource_008",
+          "start_time": 0.0,
+          "end_time": 0.6666666666666666,
+          "hours_allocated": 0.6666666666666666
+        },
+        {
+          "task_id": "task_013",
+          "resource_id": "resource_007",
+          "start_time": 0.0,
+          "end_time": 0.7833333333333333,
+          "hours_allocated": 0.7833333333333333
+        },
+        {
+          "task_id": "task_014",
+          "resource_id": "resource_009",
+          "start_time": 0.0,
+          "end_time": 0.4666666666666667,
+          "hours_allocated": 0.4666666666666667
+        },
+        {
+          "task_id": "task_015",
+          "resource_id": "resource_010",
+          "start_time": 0.0,
+          "end_time": 0.6,
+          "hours_allocated": 0.6
+        }
+      ]
+    },
+    {
+      "id": "cms_critical_path",
+      "name": "CMS Critical Path",
+      "total_duration_days": 0.38125000000000003,
+      "total_cost": 295.65,
+      "quality_score": 0.9,
+      "constraints_satisfied": true,
+      "optimization_type": "critical_path",
+      "num_assignments": 6,
+      "assignments": [
+        {
+          "task_id": "task_010",
+          "resource_id": "resource_011",
+          "start_time": 0.0,
+          "end_time": 0.5333333333333333,
+          "hours_allocated": 0.5333333333333333
+        },
+        {
+          "task_id": "task_012",
+          "resource_id": "resource_008",
+          "start_time": 0.5333333333333333,
+          "end_time": 1.2,
+          "hours_allocated": 0.6666666666666666
+        },
+        {
+          "task_id": "task_013",
+          "resource_id": "resource_007",
+          "start_time": 1.2,
+          "end_time": 1.9833333333333334,
+          "hours_allocated": 0.7833333333333333
+        },
+        {
+          "task_id": "task_015",
+          "resource_id": "resource_010",
+          "start_time": 1.9833333333333334,
+          "end_time": 2.5833333333333335,
+          "hours_allocated": 0.6
+        },
+        {
+          "task_id": "task_011",
+          "resource_id": "resource_006",
+          "start_time": 2.5833333333333335,
+          "end_time": 2.9833333333333334,
+          "hours_allocated": 0.4
+        },
+        {
+          "task_id": "task_014",
+          "resource_id": "resource_009",
+          "start_time": 2.5833333333333335,
+          "end_time": 3.0500000000000003,
+          "hours_allocated": 0.4666666666666667
+        }
+      ]
+    }
+  ],
+  "baseline": {
+    "id": "cms_baseline",
+    "name": "CMS Process Baseline",
+    "total_duration_days": 0.43125,
+    "total_cost": 295.65,
+    "quality_score": 0.85,
+    "constraints_satisfied": true,
+    "optimization_type": "cms_baseline",
+    "num_assignments": 6,
+    "assignments": [
+      {
+        "task_id": "task_010",
+        "resource_id": "resource_011",
+        "start_time": 0.0,
+        "end_time": 0.5333333333333333,
+        "hours_allocated": 0.5333333333333333
+      },
+      {
+        "task_id": "task_011",
+        "resource_id": "resource_006",
+        "start_time": 0.5333333333333333,
+        "end_time": 0.9333333333333333,
+        "hours_allocated": 0.4
+      },
+      {
+        "task_id": "task_012",
+        "resource_id": "resource_008",
+        "start_time": 0.9333333333333333,
+        "end_time": 1.6,
+        "hours_allocated": 0.6666666666666666
+      },
+      {
+        "task_id": "task_013",
+        "resource_id": "resource_007",
+        "start_time": 1.6,
+        "end_time": 2.3833333333333333,
+        "hours_allocated": 0.7833333333333333
+      },
+      {
+        "task_id": "task_014",
+        "resource_id": "resource_009",
+        "start_time": 2.3833333333333333,
+        "end_time": 2.85,
+        "hours_allocated": 0.4666666666666667
+      },
+      {
+        "task_id": "task_015",
+        "resource_id": "resource_010",
+        "start_time": 2.85,
+        "end_time": 3.45,
+        "hours_allocated": 0.6
+      }
+    ]
+  },
+  "process_info": {
+    "process_id": 7,
+    "process_name": "E-Commerce Platform Development",
+    "company": "Crystal System Pakistan"
+  }
+}

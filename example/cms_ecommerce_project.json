@@ -1,0 +1,163 @@
+{
+    "id": "project_007",
+    "name": "E-Commerce Platform Development",
+    "description": "Build a modern e-commerce platform with user management, product, catalog, and payment processing.",
+    "tasks": [
+        {
+            "id": "task_010",
+            "name": "Database Design and Setup",
+            "description": "Design database schema and set up initial database structure.",
+            "duration_hours": 0.53,
+            "required_skills": [
+                {"name": "database_design", "level": 4},
+                {"name": "sql", "level": 3}
+            ],
+            "order": 1,
+            "dependencies": []
+        },
+        {
+            "id": "task_011",
+            "name": "User Authentication",
+            "description": "Implement user registration login and authentication.",
+            "duration_hours": 0.4,
+            "required_skills": [
+                {"name": "backend_development", "level": 4},
+                {"name": "security", "level": 3}
+            ],
+            "order": 2,
+            "dependencies": ["task_010"]
+        },
+        {
+            "id": "task_012",
+            "name": "Product Catalog API",
+            "description": "Build Rest APIs for product management and catalog.",
+            "duration_hours": 0.67,
+            "required_skills": [
+                {"name": "api_development", "level": 4},
+                {"name": "backend_development", "level": 3}
+            ],
+            "order": 3,
+            "dependencies": ["task_010"]
+        },
+        {
+            "id": "task_013",
+            "name": "Frontend UI",
+            "description": "Create a responsive frontend with React/Vue.",
+            "duration_hours": 0.78,
+            "required_skills": [
+                {"name": "frontend_development", "level": 4},
+                {"name": "ui_design", "level": 3}
+            ],
+            "order": 4,
+            "dependencies": ["task_011", "task_012"]
+        },
+        {
+            "id": "task_014",
+            "name": "Payment Integration",
+            "description": "Integrate Payment gateways and checkout process.",
+            "duration_hours": 0.47,
+            "required_skills": [
+                {"name": "payment_systems", "level": 4},
+                {"name": "backend_development", "level": 3}
+            ],
+            "order": 5,
+            "dependencies": ["task_013"]
+        },
+        {
+            "id": "task_015",
+            "name": "Testing and QA",
+            "description": "Comprehensive testing including unit integration and system level testing.",
+            "duration_hours": 0.6,
+            "required_skills": [
+                {"name": "testing", "level": 4},
+                {"name": "quality_assurance", "level": 3}
+            ],
+            "order": 6,
+            "dependencies": ["task_014"]
+        }
+    ],
+    "resources": [
+        {
+            "id": "resource_011",
+            "name": "Database Admin",
+            "description": "Database design and optimization specialist.",
+            "skills": [
+                {"name": "database_design", "level": 5},
+                {"name": "sql", "level": 4}
+            ],
+            "hourly_rate": 88,
+            "max_hours_per_day": 6
+        },
+        {
+            "id": "resource_006",
+            "name": "Senior Backend",
+            "description": "Lead Backend developer with API expertise.",
+            "skills": [
+                {"name": "backend_development", "level": 5},
+                {"name": "api_development", "level": 4},
+                {"name": "security", "level": 4}
+            ],
+            "hourly_rate": 94,
+            "max_hours_per_day": 8
+        },
+        {
+            "id": "resource_008",
+            "name": "Fullstack Developer",
+            "description": "Versatile developer with both frontend and backend skills.",
+            "skills": [
+                {"name": "frontend_development", "level": 4},
+                {"name": "backend_development", "level": 4},
+                {"name": "api_development", "level": 3}
+            ],
+            "hourly_rate": 80,
+            "max_hours_per_day": 8
+        },
+        {
+            "id": "resource_007",
+            "name": "Frontend Developer",
+            "description": "Frontend specialist with modern frameworks",
+            "skills": [
+                {"name": "frontend_development", "level": 5},
+                {"name": "ui_design", "level": 4}
+            ],
+            "hourly_rate": 85,
+            "max_hours_per_day": 8
+        },
+        {
+            "id": "resource_009",
+            "name": "Payment Specialist",
+            "description": "Specialist in payment gateway integration",
+            "skills": [
+                {"name": "payment_systems", "level": 5},
+                {"name": "backend_development", "level": 3}
+            ],
+            "hourly_rate": 99,
+            "max_hours_per_day": 6
+        },
+        {
+            "id": "resource_010",
+            "name": "QA Engineer",
+            "description": "Quality assurance and test automation expert.",
+            "skills": [
+                {"name": "testing", "level": 5},
+                {"name": "quality_assurance", "level": 4}
+            ],
+            "hourly_rate": 75,
+            "max_hours_per_day": 7
+        }
+    ],
+    "constraints": {
+        "quality_gates": true,
+        "max_budget": 5000,
+        "max_duration_days": 2,
+        "min_quality_score": 0.8
+    },
+    "metadata": {
+        "project_type": "cms_ecommerce",
+        "complexity": "medium",
+        "team_size": 6,
+        "estimated_budget": 2950,
+        "company": "Crystal System Pakistan",
+        "process_code": "ECPD-001"
+    }
+}

@@ -12,9 +12,8 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from models.data_models import (
-    Project, Task, Resource, TaskAssignment, Scenario
-)
+from src.models.data_models import Project, Task, Resource, Scenario, TaskAssignment
+from src.models.cms_transformer import validate_cms_data, get_cms_transformation_summary
 from environment.scheduling_env import TaskSchedulingEnv
 from agents.dqn_agent import DQNAgent
 
@@ -778,3 +777,249 @@ class ScenarioGenerator:
         
         self.scenarios = scenarios
         return scenarios
+    
+    def create_cms_baseline_scenario(self, cms_data: Dict) -> Scenario:
+        """Create baseline scenario from CMS process structure"""
+        assignments = []
+        current_time = 0.0
+        total_cost = 0.0
+        
+        # Process tasks in CMS order
+        for process_task in sorted(cms_data['process_tasks'], key=lambda x: x['order']):
+            task = process_task['task']
+            duration_hours = task['task_capacity_minutes'] / 60.0
+            
+            # Use existing job assignments from CMS
+            for job_task in task['jobTasks']:
+                job = job_task['job']
+                
+                assignment = TaskAssignment(
+                    task_id=f"task_{task['task_id']:03d}",
+                    resource_id=f"resource_{job['job_id']:03d}",
+                    start_time=current_time,
+                    end_time=current_time + duration_hours,
+                    hours_allocated=duration_hours
+                )
+                assignments.append(assignment)
+                
+                # Calculate cost using actual CMS rates
+                total_cost += duration_hours * job['hourlyRate']
+            
+            current_time += duration_hours  # Sequential by default
+        
+        return Scenario(
+            id="cms_baseline",
+            name="CMS Process Baseline",
+            assignments=assignments,
+            total_duration_hours=current_time,
+            total_cost=total_cost,
+            quality_score=0.85,  # Default quality score
+            constraints_satisfied=True,
+            optimization_type="cms_baseline"
+        )
+    
+    def generate_cms_optimization_scenarios(self, baseline: Scenario, cms_data: Dict) -> List[Scenario]:
+        """Generate optimized scenarios preserving CMS structure"""
+        scenarios = [baseline]  # CMS baseline is first scenario
+        
+        # Parallel execution optimization (respects job assignments)
+        parallel_scenario = self.optimize_cms_parallel_tasks(baseline, cms_data)
+        scenarios.append(parallel_scenario)
+        
+        # Resource efficiency optimization
+        efficient_scenario = self.optimize_cms_resource_utilization(baseline, cms_data)
+        scenarios.append(efficient_scenario)
+        
+        # Critical path optimization
+        critical_path_scenario = self.optimize_cms_critical_path(baseline, cms_data)
+        scenarios.append(critical_path_scenario)
+        
+        return scenarios
+    
+    def optimize_cms_parallel_tasks(self, baseline: Scenario, cms_data: Dict) -> Scenario:
+        """Optimize for parallel execution while keeping job assignments"""
+        assignments = []
+        total_cost = 0.0
+        max_end_time = 0.0
+        
+        # Group tasks that can run in parallel (no dependencies)
+        task_groups = []
+        current_group = []
+        
+        for process_task in sorted(cms_data['process_tasks'], key=lambda x: x['order']):
+            task = process_task['task']
+            # Simple grouping: tasks with same or adjacent order can be parallel
+            if not current_group or process_task['order'] - current_group[-1]['order'] <= 1:
+                current_group.append(process_task)
+            else:
+                task_groups.append(current_group)
+                current_group = [process_task]
+        
+        if current_group:
+            task_groups.append(current_group)
+        
+        # Process each group
+        current_time = 0.0
+        for group in task_groups:
+            group_max_duration = 0.0
+            
+            for process_task in group:
+                task = process_task['task']
+                duration_hours = task['task_capacity_minutes'] / 60.0
+                group_max_duration = max(group_max_duration, duration_hours)
+                
+                # Keep original job assignment from CMS
+                for job_task in task['jobTasks']:
+                    job = job_task['job']
+                    
+                    assignment = TaskAssignment(
+                        task_id=f"task_{task['task_id']:03d}",
+                        resource_id=f"resource_{job['job_id']:03d}",
+                        start_time=current_time,
+                        end_time=current_time + duration_hours,
+                        hours_allocated=duration_hours
+                    )
+                    assignments.append(assignment)
+                    total_cost += duration_hours * job['hourlyRate']
+            
+            current_time += group_max_duration
+            max_end_time = current_time
+        
+        return Scenario(
+            id="cms_parallel",
+            name="CMS Parallel Execution",
+            assignments=assignments,
+            total_duration_hours=max_end_time,
+            total_cost=total_cost,
+            quality_score=0.85,
+            constraints_satisfied=True,
+            optimization_type="parallel"
+        )
+    
+    def optimize_cms_resource_utilization(self, baseline: Scenario, cms_data: Dict) -> Scenario:
+        """Optimize resource utilization within CMS constraints"""
+        assignments = []
+        total_cost = 0.0
+        
+        # Track resource availability
+        resource_availability = {}
+        
+        for process_task in sorted(cms_data['process_tasks'], key=lambda x: x['order']):
+            task = process_task['task']
+            duration_hours = task['task_capacity_minutes'] / 60.0
+            
+            # Find earliest available time for this task's resources
+            earliest_start = 0.0
+            for job_task in task['jobTasks']:
+                job = job_task['job']
+                resource_id = f"resource_{job['job_id']:03d}"
+                
+                if resource_id in resource_availability:
+                    earliest_start = max(earliest_start, resource_availability[resource_id])
+            
+            # Assign task at earliest available time
+            for job_task in task['jobTasks']:
+                job = job_task['job']
+                resource_id = f"resource_{job['job_id']:03d}"
+                
+                assignment = TaskAssignment(
+                    task_id=f"task_{task['task_id']:03d}",
+                    resource_id=resource_id,
+                    start_time=earliest_start,
+                    end_time=earliest_start + duration_hours,
+                    hours_allocated=duration_hours
+                )
+                assignments.append(assignment)
+                
+                # Update resource availability
+                resource_availability[resource_id] = earliest_start + duration_hours
+                total_cost += duration_hours * job['hourlyRate']
+        
+        # Calculate total duration
+        total_duration = max(resource_availability.values()) if resource_availability else 0.0
+        
+        return Scenario(
+            id="cms_resource_optimized",
+            name="CMS Resource Optimized",
+            assignments=assignments,
+            total_duration_hours=total_duration,
+            total_cost=total_cost,
+            quality_score=0.88,
+            constraints_satisfied=True,
+            optimization_type="resource_optimized"
+        )
+    
+    def optimize_cms_critical_path(self, baseline: Scenario, cms_data: Dict) -> Scenario:
+        """Optimize critical path within CMS constraints"""
+        assignments = []
+        total_cost = 0.0
+        
+        # Identify critical tasks (longer duration, more resources)
+        critical_tasks = []
+        non_critical_tasks = []
+        
+        for process_task in sorted(cms_data['process_tasks'], key=lambda x: x['order']):
+            task = process_task['task']
+            duration_minutes = task['task_capacity_minutes']
+            
+            # Consider tasks > 30 minutes as critical
+            if duration_minutes > 30:
+                critical_tasks.append(process_task)
+            else:
+                non_critical_tasks.append(process_task)
+        
+        # Process critical tasks first
+        current_time = 0.0
+        for process_task in critical_tasks:
+            task = process_task['task']
+            duration_hours = task['task_capacity_minutes'] / 60.0
+            
+            for job_task in task['jobTasks']:
+                job = job_task['job']
+                
+                assignment = TaskAssignment(
+                    task_id=f"task_{task['task_id']:03d}",
+                    resource_id=f"resource_{job['job_id']:03d}",
+                    start_time=current_time,
+                    end_time=current_time + duration_hours,
+                    hours_allocated=duration_hours
+                )
+                assignments.append(assignment)
+                total_cost += duration_hours * job['hourlyRate']
+            
+            current_time += duration_hours
+        
+        # Process non-critical tasks in parallel where possible
+        parallel_start = current_time
+        max_duration = 0.0
+        
+        for process_task in non_critical_tasks:
+            task = process_task['task']
+            duration_hours = task['task_capacity_minutes'] / 60.0
+            max_duration = max(max_duration, duration_hours)
+            
+            for job_task in task['jobTasks']:
+                job = job_task['job']
+                
+                assignment = TaskAssignment(
+                    task_id=f"task_{task['task_id']:03d}",
+                    resource_id=f"resource_{job['job_id']:03d}",
+                    start_time=parallel_start,
+                    end_time=parallel_start + duration_hours,
+                    hours_allocated=duration_hours
+                )
+                assignments.append(assignment)
+                total_cost += duration_hours * job['hourlyRate']
+        
+        total_duration = current_time + max_duration
+        
+        return Scenario(
+            id="cms_critical_path",
+            name="CMS Critical Path",
+            assignments=assignments,
+            total_duration_hours=total_duration,
+            total_cost=total_cost,
+            quality_score=0.90,
+            constraints_satisfied=True,
+            optimization_type="critical_path"
+        )

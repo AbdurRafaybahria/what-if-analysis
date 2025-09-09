@@ -19,11 +19,9 @@
             <section class="process-selection">
                 <h2><i class="fas fa-project-diagram"></i> Select Process</h2>
                 <div class="selection-group">
+                    <input type="text" id="processSearch" placeholder="Search processes..." class="process-search" style="display: none; margin-bottom: 10px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 100%;">
                     <select id="processDropdown" class="process-dropdown">
-                        <option value="">Select a process to optimize...</option>
-                        <option value="hospital_project">Hospital Patient Flow Optimization</option>
-                        <option value="software_project">Software Development Project</option>
-                        <option value="manufacturing_project">Manufacturing Process</option>
+                        <option value="">Loading processes...</option>
                     </select>
                     <button id="optimizeBtn" class="optimize-btn" disabled>
                         <i class="fas fa-rocket"></i> Optimize Process
@@ -41,7 +39,7 @@
                     <div class="metric-card">
                         <h3>Duration</h3>
                         <span id="scenarioDuration" class="metric-value">-</span>
-                        <span class="metric-unit">days</span>
+                        <span class="metric-unit">hours</span>
                     </div>
                     <div class="metric-card">
                         <h3>Total Cost</h3>
@@ -177,6 +175,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=20250907031831"></script>
+    <script src="script.js?v=20250908233722"></script>
 </body>
 </html>
